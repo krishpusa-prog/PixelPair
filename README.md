@@ -35,6 +35,7 @@ There is currently no lightweight, fully client-side visual comparison engine th
 * E-commerce platforms
 * Retail stores & kiosks
 * Fashion & lifestyle brands
+* DOCTORS (DERMA.)
 
 ---
 
@@ -124,7 +125,53 @@ Since PixelPair is fully offline, backend processing is replaced with client-sid
 
 ## Architecture Diagram
 
-(Add system architecture diagram image here)
++-------------------+
+|       User        |
+|  (Uploads Image)  |
++---------+---------+
+          |
+          v
++-------------------+
+|    Frontend UI    |
+|(React + tailwindss)|
++---------+---------+
+          |
+          v
++-------------------+
+| Image Preprocessing|
+| Resize + Normalize |
++---------+---------+
+          |
+          v
++-------------------+
+| TensorFlow.js     |
+|  MobileNet Model  |
+| (Feature Extractor)|
++---------+---------+
+          |
+          v
++-------------------+
+|  Query Embedding  |
+| (Vector Generator)|
++---------+---------+
+          |
+          v
++---------------------------+
+|  IndexedDB (Local Store)  |
+|  Product Embeddings       |
++-------------+-------------+
+              |
+              v
++---------------------------+
+|  Similarity Engine        |
+| (Cosine Similarity)       |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Ranked Similar Products   |
+| + Confidence Scores       |
++---------------------------+
 
 ---
 
@@ -132,7 +179,23 @@ Since PixelPair is fully offline, backend processing is replaced with client-sid
 
 ## ER Diagram
 
-(Add ER diagram image here)
+User
+  |
+  | uploads
+  ↓
+QueryImage
+  |
+  | generates
+  ↓
+Embedding
+  |
+  | compared_with
+  ↓
+Product
+  |
+  | has
+  ↓
+ProductEmbedding
 
 ---
 
@@ -221,7 +284,6 @@ MobileNet (TensorFlow.js)
 ## Frontend
 
 * React
-* Vite
 * Tailwind CSS
 
 ## Backend
@@ -340,8 +402,9 @@ GitHub Repository:
 | Member Name   | Role                    | Responsibilities                     |
 | ------------- | ----------------------- | ------------------------------------ |
 | Tanishq Gupta | ML & System Architect   | Model integration, similarity engine |
-| Member 2      | Frontend Developer      | UI/UX, result visualization          |
-| Member 3      | Data & Storage Engineer | Dataset prep, IndexedDB design       |
+|Kaustubh Kashyap| Frontend Developer     | UI/UX, result visualization ,Dataset 
+                                          |      prep, IndexedDB design          |
+
 
 ---
 
