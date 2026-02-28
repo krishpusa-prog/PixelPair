@@ -367,12 +367,6 @@ GitHub Repository:
 * No distributed catalog synchronization
 
 ---
-# Folder structure
-pixelPair/
-├── index.html     # The structure (Skeleton)
-├── style.css      # The design (Skin)
-├── script.js     # The logic (Brain)
-└── assets/        # (Optional) Place your logo or default images here
 
 # Impact
 
