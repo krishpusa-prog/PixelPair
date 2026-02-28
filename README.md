@@ -441,4 +441,59 @@ GitHub Repository:
 * Improves product discovery experience
 * Makes AI accessible on edge devices
 
+# 📂 PixelPair
+pixelpair/
+│
+├── public/
+│   ├── models/                 # Cached TensorFlow.js models
+│   ├── images/                 # Static product images
+│   └── favicon.ico
+│
+├── src/
+│
+│   ├── components/             # Reusable UI components
+│   │   ├── UploadZone.jsx
+│   │   ├── ProductCard.jsx
+│   │   ├── ResultsGrid.jsx
+│   │   └── Loader.jsx
+│   │
+│   ├── pages/                  # Page-level components
+│   │   ├── Home.jsx
+│   │   └── Results.jsx
+│   │
+│   ├── ml/                     # Machine Learning logic
+│   │   ├── loadModel.js
+│   │   ├── generateEmbedding.js
+│   │   └── preprocessImage.js
+│   │
+│   ├── similarity/             # Similarity engine
+│   │   ├── cosineSimilarity.js
+│   │   └── rankResults.js
+│   │
+│   ├── storage/                # Local database logic
+│   │   ├── indexedDB.js
+│   │   ├── saveEmbedding.js
+│   │   └── fetchEmbeddings.js
+│   │
+│   ├── data/                   # Initial product catalog
+│   │   └── products.json
+│   │
+│   ├── utils/                  # Helper functions
+│   │   ├── normalizeVector.js
+│   │   └── constants.js
+│   │
+│   ├── hooks/                  # Custom React hooks
+│   │   └── useModel.js
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── architecture/               # Diagrams & docs
+│   ├── system-architecture.png
+│   └── er-diagram.png
+│
+├── README.md
+├── package.json
+└── vite.config.js
 
