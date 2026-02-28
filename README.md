@@ -1,4 +1,4 @@
-# 🎨 PixelPair
+# PixelPair
 
 ### Offline Visual Product Comparison Engine
 
@@ -7,7 +7,7 @@ PixelPair is a fully offline, privacy-first AI-powered visual similarity engine 
 
 ---
 
-# 1️⃣ Problem Statement
+# Problem Statement
 
 ## Problem Title
 
@@ -49,7 +49,7 @@ There is currently no lightweight, fully client-side visual comparison engine th
 
 ---
 
-# 2️⃣ Problem Understanding & Approach
+# Problem Understanding & Approach
 
 ## Root Cause Analysis
 
@@ -76,7 +76,7 @@ PixelPair eliminates server dependency by:
 
 ---
 
-# 3️⃣ Proposed Solution
+# Proposed Solution
 
 ## Solution Overview
 
@@ -92,17 +92,17 @@ Convert images into numerical embeddings using MobileNet and compare embeddings 
 
 ## Key Features
 
-* 🖼 Drag-and-drop image upload
-* 🧠 On-device ML inference using TensorFlow.js
-* 💾 Local embedding storage (IndexedDB)
-* 📊 Cosine similarity ranking
-* 📈 Similarity confidence scores
-* 🔒 Fully offline operation
-* 🚫 No external APIs
+* Drag-and-drop image upload
+* On-device ML inference using TensorFlow.js
+* Local embedding storage (IndexedDB)
+* Cosine similarity ranking
+* Similarity confidence scores
+* Fully offline operation
+*  No external APIs
 
 ---
 
-# 4️⃣ System Architecture
+#  System Architecture
 
 ## High-Level Flow
 
@@ -124,80 +124,16 @@ Since PixelPair is fully offline, backend processing is replaced with client-sid
 ---
 
 ## Architecture Diagram
+<img width="547" height="1987" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/b214b238-30be-43ee-827c-13c0bd7771d2" />
 
-+-------------------+
-|       User        |
-|  (Uploads Image)  |
-+---------+---------+
-          |
-          v
-+-------------------+
-|    Frontend UI    |
-|(React + tailwindss)|
-+---------+---------+
-          |
-          v
-+-------------------+
-| Image Preprocessing|
-| Resize + Normalize |
-+---------+---------+
-          |
-          v
-+-------------------+
-| TensorFlow.js     |
-|  MobileNet Model  |
-| (Feature Extractor)|
-+---------+---------+
-          |
-          v
-+-------------------+
-|  Query Embedding  |
-| (Vector Generator)|
-+---------+---------+
-          |
-          v
-+---------------------------+
-|  IndexedDB (Local Store)  |
-|  Product Embeddings       |
-+-------------+-------------+
-              |
-              v
-+---------------------------+
-|  Similarity Engine        |
-| (Cosine Similarity)       |
-+-------------+-------------+
-              |
-              v
-+---------------------------+
-| Ranked Similar Products   |
-| + Confidence Scores       |
-+---------------------------+
 
----
 
-# 5️⃣ Database Design
+# Database Design
 
 ## ER Diagram
 
-User
-  |
-  | uploads
-  ↓
-QueryImage
-  |
-  | generates
-  ↓
-Embedding
-  |
-  | compared_with
-  ↓
-Product
-  |
-  | has
-  ↓
-ProductEmbedding
+<img width="420" height="1097" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/29d29e0c-dd03-4924-8fb7-71560e4d5135" />
 
----
 
 ## ER Diagram Description
 
@@ -217,7 +153,7 @@ Database: IndexedDB (Client-side storage)
 
 ---
 
-# 6️⃣ Dataset Selected
+# Dataset Selected
 
 ## Dataset Name
 
@@ -249,7 +185,7 @@ Image data (JPEG/PNG)
 
 ---
 
-# 7️⃣ Model Selected
+# Model Selected
 
 ## Model Name
 
@@ -279,7 +215,7 @@ MobileNet (TensorFlow.js)
 
 ---
 
-# 8️⃣ Technology Stack
+#Technology Stack
 
 ## Frontend
 
@@ -305,7 +241,7 @@ Not required (fully client-side system)
 
 ---
 
-# 9️⃣ API Documentation & Testing
+# API Documentation & Testing
 
 PixelPair operates without external APIs.
 
@@ -324,7 +260,7 @@ Returns ranked similar products.
 
 ---
 
-# 🔟 Module-wise Development & Deliverables
+#Module-wise Development & Deliverables
 
 ## Checkpoint 1: Research & Planning
 
@@ -363,7 +299,7 @@ Returns ranked similar products.
 
 ---
 
-# 1️⃣1️⃣ End-to-End Workflow
+# End-to-End Workflow
 
 1. User uploads product image
 2. Image is preprocessed
@@ -374,7 +310,7 @@ Returns ranked similar products.
 
 ---
 
-# 1️⃣2️⃣ Demo & Video
+#Demo & Video
 
 Live Demo Link:
 (Add link)
@@ -387,7 +323,7 @@ GitHub Repository:
 
 ---
 
-# 1️⃣3️⃣ Hackathon Deliverables Summary
+# Hackathon Deliverables Summary
 
 * Fully offline working prototype
 * On-device ML inference
@@ -397,18 +333,17 @@ GitHub Repository:
 
 ---
 
-# 1️⃣4️⃣ Team Roles & Responsibilities
+# Team Roles & Responsibilities
 
 | Member Name   | Role                    | Responsibilities                     |
 | ------------- | ----------------------- | ------------------------------------ |
 | Tanishq Gupta | ML & System Architect   | Model integration, similarity engine |
 |Kaustubh Kashyap| Frontend Developer     | UI/UX, result visualization ,Dataset 
-                                          |      prep, IndexedDB design          |
-
+                                               
 
 ---
 
-# 1️⃣5️⃣ Future Scope & Scalability
+# Future Scope & Scalability
 
 ## Short-Term
 
@@ -425,7 +360,7 @@ GitHub Repository:
 
 ---
 
-# 1️⃣6️⃣ Known Limitations
+# Known Limitations
 
 * Limited dataset size (demo scale)
 * Performance depends on device capability
@@ -433,7 +368,7 @@ GitHub Repository:
 
 ---
 
-# 1️⃣7️⃣ Impact
+# Impact
 
 * Reduces server and API costs
 * Protects user privacy
@@ -441,59 +376,4 @@ GitHub Repository:
 * Improves product discovery experience
 * Makes AI accessible on edge devices
 
-# 📂 PixelPair
-pixelpair/
-│
-├── public/
-│   ├── models/                 # Cached TensorFlow.js models
-│   ├── images/                 # Static product images
-│   └── favicon.ico
-│
-├── src/
-│
-│   ├── components/             # Reusable UI components
-│   │   ├── UploadZone.jsx
-│   │   ├── ProductCard.jsx
-│   │   ├── ResultsGrid.jsx
-│   │   └── Loader.jsx
-│   │
-│   ├── pages/                  # Page-level components
-│   │   ├── Home.jsx
-│   │   └── Results.jsx
-│   │
-│   ├── ml/                     # Machine Learning logic
-│   │   ├── loadModel.js
-│   │   ├── generateEmbedding.js
-│   │   └── preprocessImage.js
-│   │
-│   ├── similarity/             # Similarity engine
-│   │   ├── cosineSimilarity.js
-│   │   └── rankResults.js
-│   │
-│   ├── storage/                # Local database logic
-│   │   ├── indexedDB.js
-│   │   ├── saveEmbedding.js
-│   │   └── fetchEmbeddings.js
-│   │
-│   ├── data/                   # Initial product catalog
-│   │   └── products.json
-│   │
-│   ├── utils/                  # Helper functions
-│   │   ├── normalizeVector.js
-│   │   └── constants.js
-│   │
-│   ├── hooks/                  # Custom React hooks
-│   │   └── useModel.js
-│   │
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-│
-├── architecture/               # Diagrams & docs
-│   ├── system-architecture.png
-│   └── er-diagram.png
-│
-├── README.md
-├── package.json
-└── vite.config.js
 
