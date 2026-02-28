@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPair | Precision Visual Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body class="bg-[#f3f4f6] text-[#1f2937] h-screen flex flex-col">
+    <nav class="bg-white border-b px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold">P²</div>
+            <h1 class="text-xl font-bold tracking-tight">pixelPair</h1>
+        </div>
+        <div id="engine-status" class="flex items-center gap-2 text-xs font-medium px-3 py-1 bg-amber-50 text-amber-700 rounded-full border border-amber-200">
+            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+            Warming Engine...
+        </div>
+    </nav>
+
+    <main class="flex-1 flex overflow-hidden">
+        <aside class="w-72 bg-white border-r p-6 overflow-y-auto hidden md:block">
+            <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Active Collection</h2>
+            <select id="catalog-select" class="w-full p-2 border rounded mb-8 bg-gray-50 text-sm">
+                <option value="dermatology">Medical: Dermatology</option>
+                <option value="inventory">Industrial: Spare Parts</option>
+                <option value="design">Creative: Textures</option>
+            </select>
+
+            <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Inference Settings</h2>
+            <div class="space-y-4 text-sm text-gray-600">
+                <div>
+                    <label class="block mb-1">Color Sensitivity</label>
+                    <input type="range" class="w-full accent-indigo-600">
+                </div>
+                <div>
+                    <label class="block mb-1">Structural Weight</label>
+                    <input type="range" class="w-full accent-indigo-600">
+                </div>
+            </div>
+        </aside>
+
+        <section class="flex-1 flex flex-col p-8 overflow-y-auto">
+            <div id="drop-zone" class="relative group h-64 border-2 border-dashed border-gray-300 rounded-2xl flex flex-col items-center justify-center hover:bg-white hover:border-indigo-400 transition-all cursor-pointer mb-8 bg-gray-50/50">
+                <input type="file" id="file-input" class="hidden" accept="image/*">
+                <div class="text-center">
+                    <p class="text-lg font-medium text-gray-700">Drop reference image</p>
+                    <p class="text-sm text-gray-500">Local analysis • No cloud upload</p>
+                </div>
+                <img id="preview" class="absolute inset-0 w-full h-full object-contain p-4 hidden bg-white rounded-2xl">
+            </div>
+
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="font-bold text-gray-800">Visual Matches</h3>
+                <span id="match-count" class="text-xs text-gray-500 italic">0 items indexed</span>
+            </div>
+
+            <div id="results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
