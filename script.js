@@ -157,6 +157,64 @@ async function handleSearch(file) {
     const feat = await getFeatures(await createImageBitmap(file));
     search(feat);
 }
+async function exportLibrary() {
+    const statusPill = document.getElementById('status-pill');
+    const originalText = statusPill.innerText;
+    
+    try {
+        statusPill.innerText = "PRUNING NEURAL DATA...";
+        
+        // 1. Get all entries from IndexedDB
+        const allData = await new Promise((resolve, reject) => {
+            const transaction = db.transaction(STORE_NAME, "readonly");
+            const store = transaction.objectStore(STORE_NAME);
+            const request = store.getAll();
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject("Read Error");
+        });
+
+        if (!allData || allData.length === 0) {
+            alert("Nothing to export! Your index is empty.");
+            statusPill.innerText = originalText;
+            return;
+        }
+
+        // 2. LIGHTWEIGHT STEP: Map data to exclude heavy Base64 strings
+        // This reduces file size by ~99%
+        const lightData = allData.map(item => ({
+            vector: item.vector,
+            color: item.color,
+            folder: item.folder,
+            timestamp: new Date().getTime()
+        }));
+
+        // 3. Convert to JSON and wrap in a Blob
+        const jsonString = JSON.stringify(lightData);
+        const blob = new Blob([jsonString], { type: "application/json" });
+        
+        // 4. Create a download link
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `pixelPair_Neural_Brain_Light_${new Date().toISOString().slice(0,10)}.json`;
+        
+        // 5. Trigger download
+        document.body.appendChild(a);
+        a.click();
+        
+        // 6. Cleanup memory
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        statusPill.innerText = "LIGHT EXPORT SUCCESS";
+        setTimeout(() => statusPill.innerText = originalText, 2000);
+
+    } catch (error) {
+        console.error("Export Error:", error);
+        alert("Export failed. Check the console for details.");
+        statusPill.innerText = "EXPORT FAILED";
+    }
+}
 
 document.getElementById('drop-zone').onclick = () => document.getElementById('file-input').click();
 document.getElementById('file-input').onchange = e => handleSearch(e.target.files[0]);
