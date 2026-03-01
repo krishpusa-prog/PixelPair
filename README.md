@@ -219,7 +219,7 @@ MobileNet (TensorFlow.js)
 
 ## Frontend
 
-* React
+* HTML/CSS
 * Tailwind CSS
 
 ## Backend
