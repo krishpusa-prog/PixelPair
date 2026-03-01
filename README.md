@@ -1,4 +1,11 @@
- DEPLOYED WEBSITE LINK:https://pixel-pair-zeta.vercel.app/
+DEPLOYED WEBSITE LINK:https://pixel-pair-zeta.vercel.app/
+
+Demo Video Link:
+https://drive.google.com/file/d/1I75_m3CKqMnAM0HCDOxpKu8E1VceZ-Dj/view?usp=drive_link
+
+
+PIXELPAIR PPT:
+https://drive.google.com/file/d/1dIui9L0uUU59oVAr_MbybDUsEtBfjabn/view?usp=drive_link
 
 # PixelPair
 
@@ -317,9 +324,10 @@ Returns ranked similar products.
 
 
 Demo Video Link:
-[(Add link)](https://drive.google.com/drive/u/2/folders/12BQBpxhoI5_rmiMDbQvG3mX360oasS8K)
+https://drive.google.com/file/d/1I75_m3CKqMnAM0HCDOxpKu8E1VceZ-Dj/view?usp=drive_link
 
-
+PIXELPAIR PPT:
+https://drive.google.com/file/d/1dIui9L0uUU59oVAr_MbybDUsEtBfjabn/view?usp=drive_link
 
 ---
 
