@@ -314,14 +314,12 @@ Returns ranked similar products.
 
 #Demo & Video
 
-Live Demo Link:
-(Add link)
+
 
 Demo Video Link:
-(Add link)
+[(Add link)](https://drive.google.com/drive/u/2/folders/12BQBpxhoI5_rmiMDbQvG3mX360oasS8K)
 
-GitHub Repository:
-(Add link)
+
 
 ---
 
